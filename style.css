@@ -147,20 +147,23 @@ div.image-8 {
             margin-left:  auto;
             padding: 30px 50px 30px 50px;
         }
-        p, p1, p.credit, ul {
+        section div.text {
+            padding: 20px;
+        }
+       p, p1, ul {
             font-size: 0.9rem;
         }
+       p.credit {
+          font-size: 0.7rem;
+                }   
+
 @media (max-width: 600px) {
        body {
           margin-right: auto;
           margin-left:  auto;
-          padding: 10px 10px 10px 10px;
+          padding: 10px 10px 20px 10px;
             }
        section div.text {
-          padding: 2px;
+          padding: 15px;
             }
-       p.credit {
-          font-size: 0.7rem;
-                }    
-
 }
