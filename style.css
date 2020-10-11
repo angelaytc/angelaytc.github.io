@@ -55,6 +55,7 @@ a, a:visited {
 ul {
     margin-top: -1%;
     list-style: none;
+    padding-left: 2em;
 }
 
 ul li:nth-child(n+2) {
@@ -156,7 +157,10 @@ div.image-8 {
           padding: 10px 10px 10px 10px;
             }
        section div.text {
-          padding: 5px;
+          padding: 2px;
             }
+       p.credit {
+          font-size: 0.7rem;
+                }    
 
 }
