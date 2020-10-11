@@ -150,9 +150,13 @@ div.image-8 {
             font-size: 0.9rem;
         }
 @media (max-width: 600px) {
-     body {
-         margin-right: auto;
-         margin-left:  auto;
-         padding: 20px 20px 20px 20px;
-        }
+       body {
+          margin-right: auto;
+          margin-left:  auto;
+          padding: 10px 10px 10px 10px;
+            }
+       section div.text {
+          padding: 5px;
+            }
+
 }
