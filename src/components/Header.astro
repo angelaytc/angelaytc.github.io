@@ -1,0 +1,89 @@
+---
+import Navigation from '../components/Navigation.astro'
+import { SkipLinks } from 'accessible-astro-components'
+---
+
+<header>
+  <SkipLinks />
+  <Navigation>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">AYTC</button>
+      <ul>
+        <li class="submenu-item">
+          <a href="/">Home</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/about">About</a>
+        </li>
+      </ul>
+
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">Arts</button>
+      <ul>
+        <li class="submenu-item">
+          <a href="/arts_research/">Research art</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/arts_curatorial/">Curatorial</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/arts_talks_workshops/">Talks and Workshops</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/arts_collaborations/">Collaborations</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/arts_writing/">Writing</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/arts_illustration/">Illustration</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/arts_audio_press/">Audio and Press</a>
+        </li>
+          <li class="submenu-item">
+        <li class="submenu-item">
+          <a href="/arts_scifi/">Science Fiction</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="menu-item">
+      <a href="/research_consultancy/">Research</a>
+    </li>
+    <li class="menu-item">
+      <a href="/teaching/">Teaching</a>
+    </li>
+        <li class="menu-item">
+      <a href="/data/">Data</a>
+    </li>
+  </li>
+    <br>
+  </Navigation>
+      
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+</header>
+
+<style lang="scss">
+  @use '../assets/scss/base/breakpoint' as *;
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    @include breakpoint(medium) {
+      flex-wrap: nowrap;
+    }
+
+    img {
+      max-height: 40px;
+      max-width: 100%;
+    }
+  }
+</style>

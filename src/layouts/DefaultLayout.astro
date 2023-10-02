@@ -1,0 +1,106 @@
+---
+import '../assets/scss/globals.scss'
+import SiteMeta from '../components/SiteMeta.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+
+const {
+  title = 'aytc',
+  description = 'Angela YT Chan - website portfolio for climate , art, research and data projects',
+  url,
+  image = '/moss.png',
+} = Astro.props
+---
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- google fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Jura:wght@700&family=Outfit:wght@300&display=swap" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <SiteMeta
+      title={title}
+      description={description.substring(0, 100)}
+      url={
+        Astro.site 
+          ? `${Astro.site}/${title.toLowerCase().replaceAll(' ', '-')}`
+          : `https://accessible-astro.dev/${title.toLowerCase().replaceAll(' ', '-')}`
+      }
+      image={image}
+    />
+  </head>
+  <body>
+    <Header />
+    <section class="margin-48">
+    <div class="container">
+    <main id="main-content">
+      <slot />
+    </main>
+    </div>
+    </section>
+    <Footer />
+  </body>
+</html>
+
+<style lang="scss">
+  // theme settings
+  :root {
+    --radius-small: 3px;
+    --radius-large: 6px;
+    --gap-default: 3rem;
+    --font-measure: 70ch;
+    --font-family-default: "Outfit";
+    --font-family-special: "Jura";
+
+    // light theme
+    --font-color: var(--neutral-900);
+    --action-color: #8842fa;
+    --background: var(--neutral-100);
+    --primary-background: var(--neutral-100);
+    --neutral-background: var(--neutral-100);
+  }
+
+  // dark color scheme overrides
+  .darkmode {
+    --font-color: var(--neutral-100);
+    --action-color: #46ff4f;
+    --background: #050505;
+    --primary-background: #93da2a;
+    --neutral-background: #050505;
+  }
+
+  // sticky footer on low content pages
+  html,
+  body {
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    footer {
+      flex-shrink: 0;
+    }
+  }
+</style>
