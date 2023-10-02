@@ -1,0 +1,35 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob('../posts/*.md');
+  
+  const uniqueTags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+
+  return [
+    { params: { tag: "research art" }, props: {posts: allPosts} },
+    { params: { tag: "curatorial" }, props: {posts: allPosts} },
+    { params: { tag: "talks" }, props: {posts: allPosts} },
+    { params: { tag: "workshops" } , props: {posts: allPosts}},
+    { params: { tag: "collaborations" } , props: {posts: allPosts}},
+    { params: { tag: "writing" } , props: {posts: allPosts}},
+    { params: { tag: "illustratution" } , props: {posts: allPosts}},
+    { params: { tag: "science fiction" } , props: {posts: allPosts}},
+    { params: { tag: "research and consulting" } , props: {posts: allPosts}},
+    { params: { tag: "teaching" } , props: {posts: allPosts}},
+    { params: { tag: "data" } , props: {posts: allPosts}},
+    { params: { tag: "news" } , props: {posts: allPosts}},
+  ];
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+const filteredPosts = posts.filter((post) => post.frontmatter.tags.includes(tag));
+
+---
+<DefaultLayout pageTitle={tag}>
+  <p>Posts tagged with {tag}</p>
+  <ul>
+    {filteredPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+  </ul>
+</DefaultLayout>
